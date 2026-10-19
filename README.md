@@ -11,6 +11,14 @@
   <img src="https://komarev.com/ghpvc/?username=electron2409&label=Profile%20views&color=7b4fd6&style=for-the-badge" alt="Profile views" />
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake.svg" />
+    <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake.svg" />
+  </picture>
+</p>
+
 <br/>
 
 ## 👨‍💻 About Me
@@ -120,16 +128,4 @@ Predicts customer loan default with a gradient-boosted ensemble, built over **se
 
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=electron2409&hide_border=true&background=1d1433&ring=ff8fc7&fire=ff8fc7&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=ff8fc7&sideLabels=bcaee0&dates=bcaee0&stroke=3a2a5c" alt="GitHub streak" />
-</p>
-
-<br/>
-
-## 🐍 Contribution Snake
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake.svg" />
-    <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/electron2409/electron2409/output/github-contribution-grid-snake.svg" />
-  </picture>
 </p>
