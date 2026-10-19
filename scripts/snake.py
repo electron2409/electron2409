@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate an animated "reverse snake" contribution graph.
 
-The whole grid is green. The snake only eats the squares where nothing was
-pushed, so the days you did push stay on the board when the snake is done.
+The snake only eats the squares where nothing was pushed. Every square it eats
+turns green, so by the end the whole board is green, and the days you really
+pushed stay the brightest.
 
 Usage:
     python scripts/snake.py <github-username> <output-dir>
@@ -24,18 +25,23 @@ PITCH = 14         # square size + gap
 MARGIN = 18
 SNAKE_LEN = 6
 STEP = 0.05        # seconds per square
-PAUSE_STEPS = 40   # time the finished board stays on screen before looping
+PAUSE_STEPS = 80   # time the finished (all green) board stays before looping
 
+# "gray"  = a day with no push, before the snake reaches it
+# "eaten" = the green that square turns into once the snake has eaten it
+# "levels" = days you pushed (brighter green = more pushes)
 THEMES = {
     "github-contribution-grid-snake.svg": {          # light page
-        "empty": "#9be9a8",
+        "gray": "#ebedf0",
+        "eaten": "#9be9a8",
         "levels": ["#40c463", "#30a14e", "#216e39", "#0b4a24"],
         "head": "#ff4fa3",
         "body": "#ff8fc7",
     },
     "github-contribution-grid-snake-dark.svg": {     # dark page
-        "empty": "#0e4429",
-        "levels": ["#1f8a3a", "#26a641", "#39d353", "#7ee787"],
+        "gray": "#1b2330",
+        "eaten": "#196c2e",
+        "levels": ["#3fb950", "#56d364", "#7ee787", "#aff5b4"],
         "head": "#ff4fa3",
         "body": "#ff8fc7",
     },
@@ -153,7 +159,7 @@ def render(grid, theme):
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
-        f'aria-label="Contribution graph where a snake eats the empty days">'
+        f'aria-label="Contribution graph where a snake turns the empty days green">'
     ]
 
     # squares
@@ -166,8 +172,9 @@ def render(grid, theme):
                 t = max(order[(c, d)], 0.5) / last
                 out.append(
                     f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" '
-                    f'fill="{theme["empty"]}">'
-                    f'<animate attributeName="opacity" calcMode="discrete" values="1;0" '
+                    f'fill="{theme["gray"]}">'
+                    f'<animate attributeName="fill" calcMode="discrete" '
+                    f'values="{theme["gray"]};{theme["eaten"]}" '
                     f'keyTimes="0;{t:.5f}" dur="{dur:.2f}s" repeatCount="indefinite"/></rect>'
                 )
             else:
